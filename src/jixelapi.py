@@ -2,9 +2,13 @@ from flask import Flask, jsonify, request, render_template
 from flask_restful import Resource, Api
 from flask_restful import reqparse
 from flaskext.mysql import MySQL
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
+
+#CORS
+CORS(app)
 
 #My SQL
 mysql = MySQL()
