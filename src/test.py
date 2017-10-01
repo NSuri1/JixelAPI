@@ -80,9 +80,9 @@ input[type="text"]{
   <a href="http://dc8590fc.ngrok.io/dashboard">Admin Dashboard</a>
   <a href="http://dc8590fc.ngrok.io/about">About</a>
 </div>
-   <title>Upload new File</title>
-   <h1>Upload new File</h1>
-   <form method=post enctype=multipart/form-data>
+   <title>Upload New File</title>
+   <h1 align=center>Upload New File</h1>
+   <form method=post enctype=multipart/form-data align=center>
      <p><input type=file name=file>
         <input type=submit value=Upload>
    </form>
@@ -156,9 +156,9 @@ input[type="text"]{
   <a href="http://dc8590fc.ngrok.io/dashboard">Admin Dashboard</a>
   <a href="http://dc8590fc.ngrok.io/about">About</a>
 </div>
-   <title>Upload new File</title>
-   <h1>Upload new File</h1>
-   <form method=post enctype=multipart/form-data>
+    <title>Upload New File</title>
+   <h1 align=center>Upload New File</h1>
+   <form method=post enctype=multipart/form-data align=center>
      <p><input type=file name=file>
         <input type=submit value=Upload>
    </form>
@@ -179,7 +179,7 @@ def match_found(picture):
 
             if is_match[0] == True:
                os.remove('/Users/soyadiaoune/pycharmprojects/jixelapi/src/unknown/%s' % picture)
-               # os.remove('/Users/soyadiaoune/pycharmprojects/jixelapi/src/known/%s' % tmp_picture)
+               os.remove('/Users/soyadiaoune/pycharmprojects/jixelapi/src/known/%s' % tmp_picture)
                return 'Missing Person Name: %s' % (tmp_picture)
 
     return '''
