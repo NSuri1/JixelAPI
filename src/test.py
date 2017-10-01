@@ -168,7 +168,8 @@ input[type="text"]{
 def match_found(picture):
     unknown_picture = face_recognition.load_image_file("/Users/soyadiaoune/pycharmprojects/jixelapi/src/unknown/%s" % picture)
     unknown_face_encoding = face_recognition.face_encodings(unknown_picture)[0]
-
+    found = False
+    picture2 = ''
     for tmp_picture in os.listdir(UPLOAD_FOLDER1):
         if not tmp_picture.startswith('.'):
             known_picture = face_recognition.load_image_file("/Users/soyadiaoune/pycharmprojects/jixelapi/src/known/%s" % tmp_picture)
@@ -178,9 +179,12 @@ def match_found(picture):
             is_match = face_recognition.compare_faces([unknown_face_encoding], known_face_encoding)
 
             if is_match[0] == True:
-               os.remove('/Users/soyadiaoune/pycharmprojects/jixelapi/src/unknown/%s' % picture)
-               os.remove('/Users/soyadiaoune/pycharmprojects/jixelapi/src/known/%s' % tmp_picture)
-               return 'Missing Person Name: %s' % (tmp_picture)
+                found = True
+                picture2 = tmp_picture
+                return 'Missing Person Name: %s' % (tmp_picture)
+    if found:
+        os.remove('/Users/soyadiaoune/pycharmprojects/jixelapi/src/unknown/%s' % picture)
+        os.remove('/Users/soyadiaoune/pycharmprojects/jixelapi/src/known/%s' % picture2)
 
     return '''
     <!doctype html>
@@ -188,7 +192,7 @@ def match_found(picture):
     <style>
     html, body {
   margin: 0;
-  padding: 0;
+  padding: 0; 
   background: #CB356B;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #BD3F32, #CB356B);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #BD3F32, #CB356B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
